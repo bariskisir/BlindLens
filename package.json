@@ -1,6 +1,6 @@
 {
   "name": "blindlens",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Accessible screen descriptions with ChatGPT and spoken playback",
   "keywords": [
     "electron",
