@@ -196,6 +196,8 @@ export default createLocale({
     interfaceLanguageDescription: 'Changez la langue d’affichage de l’application.',
     timeFormat: 'Format de l’heure',
     timeFormatDescription: 'Choisissez entre un affichage sur 12 heures ou sur 24 heures.',
+    startOnStartup: 'Lancer au démarrage',
+    startOnStartupDescription: `Lancer automatiquement ${APP_NAME} à la connexion.`,
     timeFormats: { '12-hour': '12 heures', '24-hour': '24 heures' },
     alwaysOnTop: 'Toujours au premier plan',
     logging: 'Journaux',

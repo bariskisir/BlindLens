@@ -189,6 +189,8 @@ export default createLocale({
     interfaceLanguageDescription: 'Uygulamanın görüntüleme dilini değiştirin.',
     timeFormat: 'Saat biçimi',
     timeFormatDescription: '12 veya 24 saatlik gösterimi seçin.',
+    startOnStartup: 'Başlangıçta çalıştır',
+    startOnStartupDescription: `Oturum açtığınızda ${APP_NAME} uygulamasını sistem tepsisinde otomatik başlat.`,
     timeFormats: { '12-hour': '12 saat', '24-hour': '24 saat' },
     alwaysOnTop: 'Her zaman üstte',
     logging: 'Günlükler',

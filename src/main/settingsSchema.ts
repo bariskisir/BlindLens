@@ -64,6 +64,7 @@ const settingsFieldsSchema = z.object({
   navbarPosition: z.enum(NAVBAR_POSITIONS),
   pageZoom: z.number().min(PAGE_ZOOM_LIMITS.min).max(PAGE_ZOOM_LIMITS.max),
   timeFormat: z.enum(TIME_FORMATS),
+  startOnStartup: z.boolean(),
   alwaysOnTop: z.boolean(),
   showTrayIcon: z.boolean(),
   minimizeToTrayOnClose: z.boolean(),

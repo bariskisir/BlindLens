@@ -33,6 +33,7 @@ export interface AppSettings extends LensSettings {
   navbarPosition: NavbarPosition
   pageZoom: number
   timeFormat: TimeFormat
+  startOnStartup: boolean
   alwaysOnTop: boolean
   showTrayIcon: boolean
   minimizeToTrayOnClose: boolean
@@ -57,6 +58,7 @@ export const DEFAULT_SETTINGS: AppSettings = {
   navbarPosition: 'top',
   pageZoom: PAGE_ZOOM_LIMITS.default,
   timeFormat: '24-hour',
+  startOnStartup: true,
   alwaysOnTop: false,
   showTrayIcon: true,
   minimizeToTrayOnClose: true,

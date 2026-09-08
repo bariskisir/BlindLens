@@ -12,6 +12,7 @@ import {
   type SessionSummary,
 } from '@shared/types'
 import { normalizeSettingsForPlatform, settingsPatchSchema } from '../settingsSchema'
+import { configureStartOnLogin } from '../startup'
 import type AppUpdater from '../services/AppUpdater'
 import type LoggerService from '../services/LoggerService'
 import type StorageService from '../services/StorageService'
@@ -74,6 +75,9 @@ export const registerAppIpc = (
       const patch = { ...request }
       const previous = await services.storage.loadSettings()
       if (patch.captureHotkey) services.lens.applyHotkey(patch.captureHotkey)
+      if (platform === 'win32' && patch.startOnStartup === true) {
+        patch.showTrayIcon = true
+      }
       if (platform === 'linux') {
         delete patch.showTrayIcon
         delete patch.minimizeToTrayOnClose
@@ -88,6 +92,9 @@ export const registerAppIpc = (
       } catch (error) {
         if (patch.captureHotkey) services.lens.applyHotkey(previous.captureHotkey)
         throw error
+      }
+      if (patch.startOnStartup !== undefined) {
+        configureStartOnLogin(app, platform, settings.startOnStartup)
       }
       applyWindowSettings(window, settings)
       services.tray.applySettings(settings)

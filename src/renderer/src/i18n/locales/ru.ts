@@ -190,6 +190,8 @@ export default createLocale({
     interfaceLanguageDescription: 'Измените язык интерфейса приложения.',
     timeFormat: 'Формат времени',
     timeFormatDescription: 'Выберите 12- или 24-часовой формат времени.',
+    startOnStartup: 'Запускать при входе',
+    startOnStartupDescription: `Автоматически запускать ${APP_NAME} при входе в систему.`,
     timeFormats: { '12-hour': '12-часовой', '24-hour': '24-часовой' },
     alwaysOnTop: 'Поверх всех окон',
     logging: 'Журналы',

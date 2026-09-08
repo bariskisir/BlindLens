@@ -195,6 +195,8 @@ export default createLocale({
     interfaceLanguageDescription: 'Change the application display language.',
     timeFormat: 'Time format',
     timeFormatDescription: 'Choose between 12-hour and 24-hour clock display.',
+    startOnStartup: 'Start on startup',
+    startOnStartupDescription: `Launch ${APP_NAME} automatically in the system tray when you sign in.`,
     timeFormats: { '12-hour': '12-hour', '24-hour': '24-hour' },
     alwaysOnTop: 'Always on top',
     logging: 'Logging',

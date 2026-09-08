@@ -188,6 +188,8 @@ export default createLocale({
     interfaceLanguageDescription: '애플리케이션의 표시 언어를 변경합니다.',
     timeFormat: '시간 형식',
     timeFormatDescription: '12시간제 또는 24시간제 표시를 선택합니다.',
+    startOnStartup: '시작할 때 실행',
+    startOnStartupDescription: `로그인할 때 ${APP_NAME}을 자동으로 실행합니다.`,
     timeFormats: { '12-hour': '12시간제', '24-hour': '24시간제' },
     alwaysOnTop: '항상 위에 표시',
     logging: '로그',

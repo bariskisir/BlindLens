@@ -180,6 +180,8 @@ export default createLocale({
     interfaceLanguageDescription: '更改应用的显示语言。',
     timeFormat: '时间格式',
     timeFormatDescription: '选择 12 小时制或 24 小时制。',
+    startOnStartup: '开机时启动',
+    startOnStartupDescription: `登录时自动启动 ${APP_NAME}。`,
     timeFormats: { '12-hour': '12 小时制', '24-hour': '24 小时制' },
     alwaysOnTop: '窗口置顶',
     logging: '日志',

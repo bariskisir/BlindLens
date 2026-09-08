@@ -56,6 +56,8 @@ export interface LocaleResource {
     about: string
     interfaceLanguage: string
     interfaceLanguageDescription: string
+    startOnStartup: string
+    startOnStartupDescription: string
     timeFormat: string
     timeFormatDescription: string
     timeFormats: Record<'12-hour' | '24-hour', string>

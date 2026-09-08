@@ -7,6 +7,7 @@ import { APP_ID, APP_NAME } from '@shared/appInfo'
 import { toDesktopPlatform, type AppSettings, type DesktopPlatform } from '@shared/types'
 import { configureApplicationPaths, type ApplicationPaths } from './ApplicationPaths'
 import { registerIpc } from './ipc'
+import { configureStartOnLogin, isHiddenStartupLaunch } from './startup'
 import AppUpdater from './services/AppUpdater'
 import LoggerService from './services/LoggerService'
 import StorageService from './services/StorageService'
@@ -41,7 +42,10 @@ export default class Application {
       return
     }
 
-    app.on('second-instance', () => this.focusMainWindow())
+    app.on('second-instance', (_event, argv) => {
+      if (isHiddenStartupLaunch(argv)) return
+      this.focusMainWindow()
+    })
     app.on('before-quit', () => {
       this.tray?.prepareToQuit()
       this.lens?.dispose()
@@ -54,7 +58,7 @@ export default class Application {
       .whenReady()
       .then(async () => {
         app.setAppUserModelId(APP_ID)
-        await this.openWindow()
+        await this.openWindow(isHiddenStartupLaunch(process.argv))
         app.on('activate', () => {
           if (BrowserWindow.getAllWindows().length === 0) this.reopenWindow()
         })
@@ -66,22 +70,29 @@ export default class Application {
   }
 
   /** Creates all window-scoped services and binds them to a newly opened window. */
-  private async openWindow(): Promise<void> {
+  private async openWindow(startHidden = false): Promise<void> {
     const storage = new StorageService(this.paths.dataRoot)
     await storage.initialize()
     const settings = await storage.loadSettings()
+    configureStartOnLogin(app, process.platform, settings.startOnStartup)
     const logger = new LoggerService(this.paths.logsRoot, settings.logLevel)
     this.logger = logger
     this.trackStartup(settings, logger)
 
     const updater = new AppUpdater(logger)
     updater.applySettings(settings)
+    const shouldStartHidden = startHidden
     const window = await this.windowService.createWindow(
       logger,
-      settings.showTrayIcon && settings.startMinimized,
+      shouldStartHidden || (settings.showTrayIcon && settings.startMinimized),
     )
     this.tray?.dispose()
-    const tray = new TrayService(window, settings, logger, this.platform)
+    const tray = new TrayService(
+      window,
+      shouldStartHidden ? { ...settings, showTrayIcon: true } : settings,
+      logger,
+      this.platform,
+    )
     this.tray = tray
 
     window.on('close', (event) => {
@@ -95,6 +106,10 @@ export default class Application {
     registerIpc(window, { storage, tray, updater, logger, lens }, this.platform)
     window.once('closed', () => lens.dispose())
     await lens.initialize(settings)
+
+    if (shouldStartHidden) {
+      logger.info('Application', `${APP_NAME} started hidden in the system tray.`)
+    }
 
     logger.info('Application', `${APP_NAME} desktop started.`, {
       version: app.getVersion(),

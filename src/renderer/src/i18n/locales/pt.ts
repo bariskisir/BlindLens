@@ -193,6 +193,8 @@ export default createLocale({
     interfaceLanguageDescription: 'Altere o idioma de apresentação da aplicação.',
     timeFormat: 'Formato da hora',
     timeFormatDescription: 'Escolha entre a apresentação de 12 ou 24 horas.',
+    startOnStartup: 'Iniciar no arranque',
+    startOnStartupDescription: `Iniciar o ${APP_NAME} automaticamente ao iniciar sessão.`,
     timeFormats: { '12-hour': '12 horas', '24-hour': '24 horas' },
     alwaysOnTop: 'Sempre visível',
     logging: 'Registos',

@@ -189,6 +189,8 @@ export default createLocale({
     interfaceLanguageDescription: 'アプリケーションの表示言語を変更します。',
     timeFormat: '時刻形式',
     timeFormatDescription: '12 時間表示または 24 時間表示を選択します。',
+    startOnStartup: 'スタートアップ時に起動',
+    startOnStartupDescription: `サインイン時に ${APP_NAME} を自動的に起動します。`,
     timeFormats: { '12-hour': '12 時間', '24-hour': '24 時間' },
     alwaysOnTop: '常に手前に表示',
     logging: 'ログ',

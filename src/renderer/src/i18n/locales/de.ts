@@ -197,6 +197,8 @@ export default createLocale({
     interfaceLanguageDescription: 'Ändern Sie die Anzeigesprache der Anwendung.',
     timeFormat: 'Zeitformat',
     timeFormatDescription: 'Wählen Sie zwischen der 12- und 24-Stunden-Anzeige.',
+    startOnStartup: 'Beim Systemstart starten',
+    startOnStartupDescription: `${APP_NAME} nach der Anmeldung automatisch starten.`,
     timeFormats: { '12-hour': '12 Stunden', '24-hour': '24 Stunden' },
     alwaysOnTop: 'Immer im Vordergrund',
     logging: 'Protokollierung',

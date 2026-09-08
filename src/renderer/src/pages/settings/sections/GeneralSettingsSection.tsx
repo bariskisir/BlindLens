@@ -1,8 +1,8 @@
 /**
- * Renders interface language and clock-format preferences.
+ * Renders interface language, clock-format, and startup preferences.
  */
 
-import { Select } from 'antd'
+import { Select, Switch } from 'antd'
 import { useTranslation } from 'react-i18next'
 import { APP_LOCALES, TIME_FORMATS, type AppLocale, type TimeFormat } from '@shared/types'
 import { useSettingsActions } from '@renderer/hooks/useSettingsActions'
@@ -11,7 +11,7 @@ import { cx } from '@renderer/utils/classNames'
 import SettingRow from '../components/SettingRow'
 import styles from '../SettingsPage.module.scss'
 
-/** Displays locale and session timestamp-format controls. */
+/** Displays locale, timestamp-format, and startup controls. */
 const GeneralSettingsSection = (): React.JSX.Element => {
   const settings = useAppSelector((state) => state.app.settings)
   const settingsActions = useSettingsActions()
@@ -47,6 +47,17 @@ const GeneralSettingsSection = (): React.JSX.Element => {
               label: t(`settings.timeFormats.${timeFormat}`),
             }))}
             onChange={(timeFormat: TimeFormat) => void settingsActions.saveSettings({ timeFormat })}
+          />
+        </SettingRow>
+        <SettingRow
+          title={t('settings.startOnStartup')}
+          description={t('settings.startOnStartupDescription')}
+        >
+          <Switch
+            checked={settings.startOnStartup}
+            onChange={(startOnStartup: boolean) =>
+              void settingsActions.saveSettings({ startOnStartup })
+            }
           />
         </SettingRow>
       </section>
