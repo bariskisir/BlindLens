@@ -1,0 +1,18 @@
+/* Styles the floating notice offering a ready application update. */
+
+.container {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 8px 9px 8px 12px;
+  border: 0.5px solid var(--color-border);
+  border-radius: 11px;
+  color: var(--color-text-1);
+  background: var(--modal-background);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.24);
+  font-size: 12px;
+}

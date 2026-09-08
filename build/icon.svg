@@ -1,0 +1,9 @@
+<!-- Represents a lens and spoken sound using the BlindLens blue and white palette. -->
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="512" height="512" rx="110" fill="#4F46E5"/>
+  <path d="M68 252C113 186 164 152 226 152C288 152 340 186 384 252C340 318 288 352 226 352C164 352 113 318 68 252Z" stroke="#FFFFFF" stroke-width="23" stroke-linejoin="round"/>
+  <circle cx="226" cy="252" r="65" fill="#FFFFFF"/>
+  <circle cx="226" cy="252" r="29" fill="#4F46E5"/>
+  <circle cx="245" cy="233" r="12" fill="#FFFFFF"/>
+  <path d="M401 213V291M437 235V269" stroke="#FFFFFF" stroke-width="18" stroke-linecap="round"/>
+</svg>
