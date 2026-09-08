@@ -68,7 +68,7 @@
     "react-dom": "19.2.8",
     "react-i18next": "17.0.13",
     "react-redux": "9.3.0",
-    "sass": "1.103.1",
+    "sass": "1.104.0",
     "typescript": "7.0.2",
     "vite": "8.2.2",
     "vite-plugin-electron": "1.1.2",
