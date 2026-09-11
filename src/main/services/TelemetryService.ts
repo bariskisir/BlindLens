@@ -8,6 +8,7 @@ import { resolveApplicationInsightsConnectionString } from '@shared/appInfo'
 import type { AppLocale } from '@shared/types'
 import { z } from 'zod'
 import { readJsonFile, writeJsonFile } from '../storage/atomicJson'
+import { httpFetch } from './HttpFetch'
 
 const telemetryIdentitySchema = z.object({
   revision: z.literal(1),
@@ -91,7 +92,7 @@ export default class TelemetryService {
   /** Creates the telemetry sender without enabling any automatic data collection. */
   public constructor(
     dataRoot: string,
-    private readonly fetcher: TelemetryFetcher = fetch,
+    private readonly fetcher: TelemetryFetcher = httpFetch,
   ) {
     this.identityPath = join(dataRoot, 'telemetry.json')
   }

@@ -20,6 +20,7 @@ import {
 } from './ChatGptMetadata'
 import { createOAuthCallback, OAUTH_REDIRECT_URL, type OAuthCallback } from './OAuthCallback'
 import { readChatGptStream } from './ChatGptStream'
+import { httpFetch } from './HttpFetch'
 import { readProviderJson, requireProviderSuccess } from './providerTransport'
 
 const CLIENT_ID = 'app_EMoamEEZ73f0CkXaXp7hrann'
@@ -46,7 +47,7 @@ export default class ChatGptService {
     private readonly credentials: CredentialService,
     private readonly changed: () => void,
     private readonly logger: LoggerService,
-    private readonly fetcher: typeof fetch = fetch,
+    private readonly fetcher: typeof fetch = httpFetch,
   ) {}
   /** Restores authentication without blocking startup on network metadata. */
   public async initialize(): Promise<void> {

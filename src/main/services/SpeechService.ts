@@ -5,6 +5,7 @@ import type { AppSettings } from '@shared/settings'
 import type { CaptureSpeech, SpeechModel, CredentialProvider } from '@shared/lens'
 import { splitSpeechText } from '@shared/speech'
 import type CredentialService from './CredentialService'
+import { httpFetch } from './HttpFetch'
 import { readBoundedBytes, readProviderJson, requireProviderSuccess } from './providerTransport'
 
 const catalogSchema = z.object({
@@ -24,7 +25,7 @@ export default class SpeechService {
   /** Injects the secret vault and network transport. */
   public constructor(
     private readonly credentials: CredentialService,
-    private readonly fetcher: typeof fetch = fetch,
+    private readonly fetcher: typeof fetch = httpFetch,
   ) {}
   /** Verifies a entered key before replacing the working encrypted credential. */
   public async verifyCredential(provider: CredentialProvider, key: string): Promise<number | null> {
