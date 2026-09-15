@@ -47,7 +47,7 @@
   "dependencies": {
     "electron-log": "5.4.4",
     "uiohook-napi": "1.5.5",
-    "zod": "4.5.4"
+    "zod": "4.6.2"
   },
   "devDependencies": {
     "@biomejs/biome": "2.5.12",
