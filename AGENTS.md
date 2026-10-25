@@ -10,7 +10,7 @@ The default shortcut is left `Ctrl+Alt`, activated after all keys are released. 
 
 | Layer | Technology |
 | --- | --- |
-| Desktop shell | Electron 43.2 with `vite-plugin-electron` |
+| Desktop shell | Electron 43.8 with `vite-plugin-electron` |
 | Build | Vite 8 for main, preload, and renderer bundles |
 | Language | TypeScript 7 |
 | UI | React 19, Redux Toolkit, Ant Design 6, SCSS Modules |

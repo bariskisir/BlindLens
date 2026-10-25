@@ -1,12 +1,17 @@
 {
-  "$schema": "https://biomejs.dev/schemas/2.5.7/schema.json",
-  "formatter": {
-    "enabled": false
-  },
-  "linter": {
-    "enabled": true,
-    "rules": {
-      "recommended": true
-    }
-  }
+	"$schema": "https://biomejs.dev/schemas/2.6.3/schema.json",
+	"formatter": {
+		"enabled": false
+	},
+	"linter": {
+		"enabled": true,
+		"rules": {
+			"preset": "recommended"
+		}
+	},
+	"css": {
+		"linter": {
+			"enabled": false
+		}
+	}
 }
