@@ -51,7 +51,7 @@
   },
   "devDependencies": {
     "@biomejs/biome": "2.6.3",
-    "@reduxjs/toolkit": "2.13.0",
+    "@reduxjs/toolkit": "2.14.0",
     "@resvg/resvg-js": "2.6.2",
     "@types/node": "26.6.5",
     "@types/react": "19.3.0",
